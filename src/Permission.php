@@ -43,6 +43,7 @@ class Permission
      */
     public function setPath($path)
     {
+        // We'll validate that the path actually exists before we set it.
         if (file_exists($path)) {
             $this->path = $path;
         } else {
