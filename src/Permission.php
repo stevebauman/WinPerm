@@ -50,6 +50,11 @@ class Permission
         }
     }
 
+    /**
+     * Executes and processes account permissions for the current path.
+     *
+     * @return array|bool
+     */
     public function check()
     {
         exec("{$this->command} {$this->path}", $output, $return);
