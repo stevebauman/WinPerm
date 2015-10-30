@@ -2,7 +2,6 @@
 
 namespace Stevebauman\WinPerm;
 
-use Stevebauman\WinPerm\Account;
 use Stevebauman\WinPerm\Permissions\Delete;
 use Stevebauman\WinPerm\Permissions\Full;
 use Stevebauman\WinPerm\Permissions\Modify;
