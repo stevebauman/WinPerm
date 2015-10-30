@@ -1,4 +1,6 @@
 # WinPerm
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/stevebauman/winperm/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/stevebauman/winperm/?branch=master)
+
 A Windows File / Folder Permission Parser.
 
 ## Description
