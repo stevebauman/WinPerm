@@ -57,7 +57,9 @@ class Permission
      */
     public function check()
     {
-        exec("{$this->command} {$this->path}", $output, $return);
+        $command = sprintf('%s "%s"', $this->command, $this->path);
+
+        exec($command, $output, $return);
 
         if ($return === 0 && is_array($output)) {
             // The first element will always include the path, we'll
