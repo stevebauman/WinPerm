@@ -122,8 +122,7 @@ class Parser
      */
     protected function parseAccount($account)
     {
-        // Separate the account by it's account and permission list, for example:
-        // BUILTIN\Administrators:(OI)(CI)(F)
+        // Separate the account by it's account and permission list.
         $parts = explode(':', trim($account));
 
         // We should receive exactly two parts of a permission
