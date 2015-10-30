@@ -24,7 +24,7 @@ Then run `composer update`.
 
 ## Usage
 
-Create a new `Stevebauman\WinPerm\Permission` instance with the folder / file path you'd like to verify:
+Create a new `Stevebauman\WinPerm\Permission` instance, and then set the path by calling `setPath($path)`:
 
 ```php
 $permission = new \Stevebauman\WinPerm\Permission();
