@@ -2,6 +2,7 @@
 
 namespace Stevebauman\WinPerm;
 
+use Stevebauman\WinPerm\Account;
 use Stevebauman\WinPerm\Permissions\Delete;
 use Stevebauman\WinPerm\Permissions\Full;
 use Stevebauman\WinPerm\Permissions\Modify;
@@ -111,12 +112,10 @@ class Parser
      *
      * @param string $account
      *
-     * @return array
+     * @return Account
      */
     protected function parseAccount($account)
     {
-        $users = [];
-
         // Separate the account by it's account and permission list, for example:
         // BUILTIN\Administrators:(OI)(CI)(F)
         $parts = explode(':', trim($account));
@@ -124,10 +123,14 @@ class Parser
         // We should receive exactly two parts of a permission
         // listing, otherwise we'll return null.
         if (count($parts) === 2) {
-            $users[$parts[0]] = $this->parseAccessControlList($parts[1]);
+            $account = new Account($parts[0]);
+
+            $account->setPermissions($this->parseAccessControlList($parts[1]));
+
+            return $account;
         }
 
-        return $users;
+        null;
     }
 
     /**
