@@ -7,6 +7,15 @@ A Windows File / Folder Permission Parser.
 - Access to the `icacls` command
 - A Windows hosted server
 
+
+## Installation
+
+Install WinPerm through composer. Insert this into your `composer.json` dependencies:
+
+    "stevebauman/winperm": "1.0.*"
+
+Then run `composer update`.
+
 ## Usage
 
 Create a new `Stevebauman\WinPerm\Permission` instance with the folder / file path you'd like to verify:
