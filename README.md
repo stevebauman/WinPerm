@@ -1,12 +1,16 @@
 # WinPerm
 A Windows File / Folder Permission Parser.
 
+## Description
+
+WinPerm allows you to view the permissions on 
+
 ## Requirements
 
+- PHP 5.5 or greater
 - `exec()` permissions
 - Access to the `icacls` command
 - A Windows hosted server
-
 
 ## Installation
 
