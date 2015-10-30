@@ -1,2 +1,2 @@
 # WinPerm
-A Windows File / Folder Permission Parser
+A Windows File / Folder Permission Parser.
