@@ -1,5 +1,7 @@
 # WinPerm
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/stevebauman/winperm/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/stevebauman/winperm/?branch=master)
+[![Latest Stable Version](https://img.shields.io/packagist/v/stevebauman/winperm.svg?style=flat-square)](https://packagist.org/packages/stevebauman/winperm)
+[![License](https://img.shields.io/packagist/l/stevebauman/winperm.svg?style=flat-square)](https://packagist.org/packages/stevebauman/winperm)
 
 A Windows File / Folder Permission Parser.
 
