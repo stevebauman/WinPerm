@@ -100,7 +100,14 @@ class Parser
         $results = [];
 
         foreach ($this->output as $account) {
-            $results[] = $this->parseAccount($account);
+            $account = $this->parseAccount($account);
+
+            if ($account instanceof Account) {
+                // We'll double check the resulting account is an
+                // instance of the Account object before
+                // adding it to the results array.
+                $results[] = $account;
+            }
         }
 
         return $results;
@@ -112,7 +119,7 @@ class Parser
      *
      * @param string $account
      *
-     * @return Account
+     * @return null|Account
      */
     protected function parseAccount($account)
     {
