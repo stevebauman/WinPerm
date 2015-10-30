@@ -136,7 +136,7 @@ class Parser
             return $account;
         }
 
-        null;
+        return null;
     }
 
     /**
