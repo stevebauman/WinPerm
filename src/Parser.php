@@ -88,7 +88,13 @@ class Parser
         $this->output = $output;
     }
 
-    public function generate()
+    /**
+     * Parses the output array into an access control list
+     * with accounts and their permission objects.
+     *
+     * @return array
+     */
+    public function parse()
     {
         $results = [];
 
@@ -99,6 +105,14 @@ class Parser
         return $results;
     }
 
+    /**
+     * Parses an account string with permissions
+     * into individual components.
+     *
+     * @param string $account
+     *
+     * @return array
+     */
     protected function parseAccount($account)
     {
         $users = [];
@@ -116,6 +130,14 @@ class Parser
         return $users;
     }
 
+    /**
+     * Parses an access control list string into
+     * an array of Permission objects.
+     *
+     * @param string $list
+     *
+     * @return array
+     */
     protected function parseAccessControlList($list)
     {
         $permissions = [];

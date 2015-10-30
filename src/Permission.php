@@ -66,7 +66,7 @@ class Permission
             $output = array_filter($output);
 
             // Finally, we'll pass the output to the parser.
-            return (new Parser($output))->generate();
+            return (new Parser($output))->parse();
         }
 
         return false;
