@@ -2,7 +2,7 @@
 
 namespace Stevebauman\WinPerm;
 
-use Stevebauman\WinPerm\Exceptions\FileNotFoundException;
+use Stevebauman\WinPerm\Exceptions\InvalidPathException;
 
 class Permission
 {
@@ -25,7 +25,7 @@ class Permission
      *
      * @param string $path The path to check permissions on.
      *
-     * @throws FileNotFoundException
+     * @throws InvalidPathException
      */
     public function __construct($path = null)
     {
@@ -39,7 +39,7 @@ class Permission
      *
      * @param string $path
      *
-     * @throws FileNotFoundException
+     * @throws InvalidPathException
      */
     public function setPath($path)
     {
@@ -47,7 +47,7 @@ class Permission
         if (file_exists($path)) {
             $this->path = $path;
         } else {
-            throw new FileNotFoundException('File or Folder does not exist.');
+            throw new InvalidPathException('File or Folder does not exist.');
         }
     }
 

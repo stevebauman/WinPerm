@@ -24,7 +24,7 @@ class WinPermTestCase extends \PHPUnit_Framework_TestCase
 
     public function testConstructWithoutValidPath()
     {
-        $this->setExpectedException('Stevebauman\WinPerm\Exceptions\FileNotFoundException');
+        $this->setExpectedException('Stevebauman\WinPerm\Exceptions\InvalidPathException');
 
         new Permission('invalid path');
     }

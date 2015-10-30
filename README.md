@@ -54,7 +54,7 @@ try {
     
     var_dump($results[0]); // Will return instance of \Stevebauman\WinPerm\Account
     
-} catch (\Stevebauman\WinPerm\Exceptions\FileNotFoundException $e) {
-    //
+} catch (\Stevebauman\WinPerm\Exceptions\InvalidPathException $e) {
+    // Uh oh, it looks like the path doesn't exist!
 }
 ```
