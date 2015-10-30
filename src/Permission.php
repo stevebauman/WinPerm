@@ -57,7 +57,7 @@ class Permission
      */
     public function check()
     {
-        $command = sprintf('%s "%s"', $this->command, $this->path);
+        $command = sprintf('%s "%s"', $this->command, addslashes($this->path));
 
         exec($command, $output, $return);
 
