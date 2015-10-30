@@ -142,10 +142,16 @@ class Parser
     {
         $permissions = [];
 
+        // Matches between two parenthesis.
         preg_match_all('/\((.*?)\)/', $list, $matches);
 
+        // Make sure we have resulting matches.
         if (is_array($matches) && count($matches) > 0) {
+            // Matches inside the first key will have parenthesis
+            // already removed, so we need to verify it exists.
             if (array_key_exists(1, $matches) && is_array($matches[1])) {
+                // We'll go through each match and see if the ACE
+                // exists inside the permissions definition list.
                 foreach ($matches[1] as $definition) {
                     if (array_key_exists($definition, $this->definitions)) {
                         $permissions[] =  new $this->definitions[$definition];
