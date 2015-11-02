@@ -7,7 +7,7 @@ A Windows File / Folder Permission Parser.
 
 ## Description
 
-WinPerm allows you to view the permissions on 
+WinPerm allows you to view the permissions on files and folders on the Windows OS.
 
 ## Requirements
 
