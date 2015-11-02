@@ -28,11 +28,18 @@ interface AccountInterface
     public function setPermissions(array $permissions = []);
 
     /**
-     * Returns the accounts permissions.
+     * Returns the accounts permission objects.
      *
      * @return array
      */
     public function getPermissions();
+
+    /**
+     * Returns the accounts permission names.
+     *
+     * @return array
+     */
+    public function getPermissionNames();
 
     /**
      * Adds a permission to the account.

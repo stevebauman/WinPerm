@@ -59,6 +59,22 @@ class Account implements AccountInterface
     /**
      * {@inheritdoc}
      */
+    public function getPermissionNames()
+    {
+        $names = [];
+
+        foreach ($this->permissions as $permission) {
+            if ($permission instanceof PermissionInterface) {
+                $names[] = (string) $permission;
+            }
+        }
+
+        return $names;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function addPermission(PermissionInterface $permission)
     {
         $this->permissions[$permission->definition()] = $permission;
