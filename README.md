@@ -70,7 +70,7 @@ $user = 'ACME\\administrator';
 $pass = 'Password1';
 $drive_letter = 'Z';
 
-$command = sprintf('net use %s: %s %s /user:%s /persistent:no>nul 2>&1', $drive, $path, $password, $username);
+$command = sprintf('net use %s: %s %s /user:%s /persistent:no', $drive, $path, $password, $username);
 
 system($command);
 
