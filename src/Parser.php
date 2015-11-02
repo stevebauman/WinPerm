@@ -161,10 +161,36 @@ class Parser
                 // We'll go through each match and see if the ACE
                 // exists inside the permissions definition list.
                 foreach ($matches[1] as $definition) {
-                    if (array_key_exists($definition, $this->definitions)) {
-                        $permissions[] =  new $this->definitions[$definition];
-                    }
+                    // We'll merge the permissions list so we have a flat array
+                    // of all of the rights for the current account.
+                    $permissions = array_merge($permissions, $this->parseDefinitionRights($definition));
                 }
+            }
+        }
+
+        return $permissions;
+    }
+
+    /**
+     * Parses a ACE definition list into an array of permission objects.
+     *
+     * @param string $definition
+     *
+     * @return array
+     */
+    protected function parseDefinitionRights($definition)
+    {
+        $permissions = [];
+
+        // We need to explode the definition in case it contains
+        // multiple rights, for example: (GR,GE).
+        $rights = explode(',', $definition);
+
+        foreach ($rights as $right) {
+            // We'll make sure the right exists inside the definitions
+            // array before we try to instantiate it.
+            if (array_key_exists($right, $this->definitions)) {
+                $permissions[] =  new $this->definitions[$right];
             }
         }
 
