@@ -36,9 +36,9 @@ try {
     
     $permission->setPath($path);
     
-    $results = $permission->check();
+    $accounts = $permission->check();
     
-    foreach ($results as $account) {
+    foreach ($accounts as $account) {
         // Returns the accounts name, ex: 'BUILTIN\Administrators'
         echo $account->getName();
         
@@ -57,4 +57,22 @@ try {
 } catch (\Stevebauman\WinPerm\Exceptions\InvalidPathException $e) {
     // Uh oh, it looks like the path doesn't exist!
 }
+```
+
+## Usage (Network Drive)
+
+To use WinPerm with a network drive, simply mount the drive with a system account before setting your path:
+
+```php
+$path = '\\\\server\\folder';
+
+$user = 'ACME\\administrator';
+$pass = 'Password1';
+$drive_letter = 'Z';
+
+$command = sprintf('net use %s: %s %s /user:%s /persistent:no>nul 2>&1', $drive, $path, $password, $username);
+
+system($command);
+
+$accounts = new Permission('Z:\\HR');
 ```
