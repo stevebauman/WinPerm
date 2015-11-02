@@ -4,7 +4,7 @@ namespace Stevebauman\WinPerm;
 
 use Stevebauman\WinPerm\Permissions\PermissionInterface;
 
-class Account
+class Account implements AccountInterface
 {
     /**
      * The account name.
@@ -21,9 +21,7 @@ class Account
     protected $permissions = [];
 
     /**
-     * Constructor.
-     *
-     * @param string $name
+     * {@inheritdoc}
      */
     public function __construct($name = '')
     {
@@ -31,9 +29,7 @@ class Account
     }
 
     /**
-     * Returns the account name.
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -41,11 +37,9 @@ class Account
     }
 
     /**
-     * Sets the accounts permissions.
-     *
-     * @param array $permissions
+     * {@inheritdoc}
      */
-    public function setPermissions(array $permissions)
+    public function setPermissions(array $permissions = [])
     {
         foreach ($permissions as $permission) {
             if ($permission instanceof PermissionInterface) {
@@ -55,9 +49,7 @@ class Account
     }
 
     /**
-     * Returns the accounts permissions.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public function getPermissions()
     {
@@ -65,9 +57,7 @@ class Account
     }
 
     /**
-     * Adds a permission to the account.
-     *
-     * @param PermissionInterface $permission
+     * {@inheritdoc}
      */
     public function addPermission(PermissionInterface $permission)
     {
@@ -75,11 +65,7 @@ class Account
     }
 
     /**
-     * Returns true / false if the current account has the specified permission.
-     *
-     * @param string|PermissionInterface $permission
-     *
-     * @return bool
+     * {@inheritdoc}
      */
     public function hasPermission($permission)
     {
