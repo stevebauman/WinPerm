@@ -68,7 +68,7 @@ $path = '\\\\server\\folder';
 
 $user = 'ACME\\administrator';
 $pass = 'Password1';
-$drive_letter = 'Z';
+$drive = 'Z';
 
 $command = sprintf('net use %s: %s %s /user:%s /persistent:no', $drive, $path, $password, $username);
 
