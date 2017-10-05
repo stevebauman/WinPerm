@@ -69,12 +69,7 @@ class Parser
         $results = [];
 
         foreach ($this->output as $account) {
-            $account = $this->parseAccount($account);
-
-            if ($account instanceof Account) {
-                // We'll double check the resulting account is an
-                // instance of the Account object before
-                // adding it to the results array.
+            if ($account = $this->parseAccount($account)) {
                 $results[] = $account;
             }
         }
@@ -100,7 +95,9 @@ class Parser
         if (count($parts) === 2) {
             $account = new Account($parts[0]);
 
-            $account->setPermissions($this->parseAccessControlList($parts[1]));
+            $acl = $this->parseAccessControlList($parts[1]);
+
+            $account->setPermissions($acl);
 
             return $account;
         }

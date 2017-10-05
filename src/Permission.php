@@ -43,7 +43,6 @@ class Permission
      */
     public function setPath($path)
     {
-        // We'll validate that the path actually exists before we set it.
         if (file_exists($path)) {
             $this->path = $path;
         } else {
@@ -74,9 +73,21 @@ class Permission
             $output = array_filter($output);
 
             // Finally, we'll pass the output to the parser.
-            return (new Parser($output))->parse();
+            return $this->newParser($output)->parse();
         }
 
         return false;
+    }
+
+    /**
+     * Returns a new parser instance.
+     *
+     * @param array $output
+     *
+     * @return Parser
+     */
+    protected function newParser(array $output = [])
+    {
+        return new Parser($output);
     }
 }
