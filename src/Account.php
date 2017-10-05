@@ -61,15 +61,9 @@ class Account implements AccountInterface
      */
     public function getPermissionNames()
     {
-        $names = [];
-
-        foreach ($this->permissions as $permission) {
-            if ($permission instanceof PermissionInterface) {
-                $names[] = (string) $permission;
-            }
-        }
-
-        return $names;
+        return array_map(function ($permission) {
+            return (string) $permission;
+        }, $this->permissions);
     }
 
     /**
