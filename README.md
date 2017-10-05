@@ -66,9 +66,9 @@ To use WinPerm with a network drive, simply mount the drive with a system accoun
 ```php
 $path = '\\\\server\\folder';
 
-$username = 'ACME\\administrator';
-$password = 'Password1';
-$drive = 'Z';
+$user = 'ACME\\administrator';
+$pass = 'Password1';
+$drive_letter = 'Z';
 
 $command = sprintf('net use %s: %s %s /user:%s /persistent:no', $drive, $path, $password, $username);
 

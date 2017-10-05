@@ -2,36 +2,6 @@
 
 namespace Stevebauman\WinPerm;
 
-use Stevebauman\WinPerm\Permissions\Delete;
-use Stevebauman\WinPerm\Permissions\Full;
-use Stevebauman\WinPerm\Permissions\Modify;
-use Stevebauman\WinPerm\Permissions\ReadAndExecute;
-use Stevebauman\WinPerm\Permissions\Read;
-use Stevebauman\WinPerm\Permissions\ReadControl;
-use Stevebauman\WinPerm\Permissions\Write;
-use Stevebauman\WinPerm\Permissions\WriteDAC;
-use Stevebauman\WinPerm\Permissions\WriteOwner;
-use Stevebauman\WinPerm\Permissions\Synchronize;
-use Stevebauman\WinPerm\Permissions\AccessSystemSecurity;
-use Stevebauman\WinPerm\Permissions\MaximumAllowed;
-use Stevebauman\WinPerm\Permissions\GenericRead;
-use Stevebauman\WinPerm\Permissions\GenericWrite;
-use Stevebauman\WinPerm\Permissions\GenericExecute;
-use Stevebauman\WinPerm\Permissions\GenericAll;
-use Stevebauman\WinPerm\Permissions\ReadData;
-use Stevebauman\WinPerm\Permissions\WriteData;
-use Stevebauman\WinPerm\Permissions\AppendData;
-use Stevebauman\WinPerm\Permissions\ReadExtendedAttributes;
-use Stevebauman\WinPerm\Permissions\WriteExtendedAttributes;
-use Stevebauman\WinPerm\Permissions\Execute;
-use Stevebauman\WinPerm\Permissions\DeleteChild;
-use Stevebauman\WinPerm\Permissions\ReadAttributes;
-use Stevebauman\WinPerm\Permissions\WriteAttributes;
-use Stevebauman\WinPerm\Permissions\ObjectInherit;
-use Stevebauman\WinPerm\Permissions\ContainerInherit;
-use Stevebauman\WinPerm\Permissions\InheritOnly;
-use Stevebauman\WinPerm\Permissions\NoPropagation;
-
 class Parser
 {
     /**
@@ -47,35 +17,35 @@ class Parser
      * @var array
      */
     protected $definitions = [
-        'F'     => Full::class,
-        'M'     => Modify::class,
-        'RX'    => ReadAndExecute::class,
-        'R'     => Read::class,
-        'W'     => Write::class,
-        'D'     => Delete::class,
-        'RC'    => ReadControl::class,
-        'WDAC'  => WriteDAC::class,
-        'WO'    => WriteOwner::class,
-        'S'     => Synchronize::class,
-        'AS'    => AccessSystemSecurity::class,
-        'MA'    => MaximumAllowed::class,
-        'GR'    => GenericRead::class,
-        'GW'    => GenericWrite::class,
-        'GE'    => GenericExecute::class,
-        'GA'    => GenericAll::class,
-        'RD'    => ReadData::class,
-        'WD'    => WriteData::class,
-        'AD'    => AppendData::class,
-        'REA'   => ReadExtendedAttributes::class,
-        'WEA'   => WriteExtendedAttributes::class,
-        'X'     => Execute::class,
-        'DC'    => DeleteChild::class,
-        'RA'    => ReadAttributes::class,
-        'WA'    => WriteAttributes::class,
-        'OI'    => ObjectInherit::class,
-        'CI'    => ContainerInherit::class,
-        'IO'    => InheritOnly::class,
-        'NP'    => NoPropagation::class,
+        'F'     => Permissions\Full::class,
+        'M'     => Permissions\Modify::class,
+        'RX'    => Permissions\ReadAndExecute::class,
+        'R'     => Permissions\Read::class,
+        'W'     => Permissions\Write::class,
+        'D'     => Permissions\Delete::class,
+        'RC'    => Permissions\ReadControl::class,
+        'WDAC'  => Permissions\WriteDAC::class,
+        'WO'    => Permissions\WriteOwner::class,
+        'S'     => Permissions\Synchronize::class,
+        'AS'    => Permissions\AccessSystemSecurity::class,
+        'MA'    => Permissions\MaximumAllowed::class,
+        'GR'    => Permissions\GenericRead::class,
+        'GW'    => Permissions\GenericWrite::class,
+        'GE'    => Permissions\GenericExecute::class,
+        'GA'    => Permissions\GenericAll::class,
+        'RD'    => Permissions\ReadData::class,
+        'WD'    => Permissions\WriteData::class,
+        'AD'    => Permissions\AppendData::class,
+        'REA'   => Permissions\ReadExtendedAttributes::class,
+        'WEA'   => Permissions\WriteExtendedAttributes::class,
+        'X'     => Permissions\Execute::class,
+        'DC'    => Permissions\DeleteChild::class,
+        'RA'    => Permissions\ReadAttributes::class,
+        'WA'    => Permissions\WriteAttributes::class,
+        'OI'    => Permissions\ObjectInherit::class,
+        'CI'    => Permissions\ContainerInherit::class,
+        'IO'    => Permissions\InheritOnly::class,
+        'NP'    => Permissions\NoPropagation::class,
     ];
 
     /**

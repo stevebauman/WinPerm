@@ -2,30 +2,34 @@
 
 namespace Stevebauman\WinPerm\Tests;
 
-use Stevebauman\WinPerm\Permission;
+use Stevebauman\WinPerm\WinPerm;
 
 class WinPermTestCase extends \PHPUnit_Framework_TestCase
 {
-    public function testConstructWithoutPath()
+    /** @test */
+    public function can_be_constructed_without_path()
     {
-        $permission = new Permission();
+        $permission = new WinPerm();
 
-        $this->assertInstanceOf(Permission::class, $permission);
+        $this->assertInstanceOf(WinPerm::class, $permission);
     }
 
-    public function testConstructWithValidPath()
+    /** @test */
+    public function valid_path_does_not_throw_exception()
     {
-        new Permission(__DIR__);
+        new WinPerm(__DIR__);
 
         $passes = true;
 
         $this->assertTrue($passes);
     }
 
-    public function testConstructWithoutValidPath()
+    /**
+     * @test
+     * @expectedException \Stevebauman\WinPerm\Exceptions\InvalidPathException
+     */
+    public function invalid_path_throws_exception()
     {
-        $this->setExpectedException('Stevebauman\WinPerm\Exceptions\InvalidPathException');
-
-        new Permission('invalid path');
+        new WinPerm('invalid path');
     }
 }
