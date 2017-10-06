@@ -5,18 +5,11 @@ namespace Stevebauman\WinPerm;
 class Parser
 {
     /**
-     * The output of the resulting permission command.
-     *
-     * @var array
-     */
-    protected $output = [];
-
-    /**
      * The permissions definition for parsing.
      *
      * @var array
      */
-    protected $definitions = [
+    public static $definitions = [
         'F'     => Permissions\Full::class,
         'M'     => Permissions\Modify::class,
         'RX'    => Permissions\ReadAndExecute::class,
@@ -47,6 +40,13 @@ class Parser
         'IO'    => Permissions\InheritOnly::class,
         'NP'    => Permissions\NoPropagation::class,
     ];
+
+    /**
+     * The output of the resulting permission command.
+     *
+     * @var array
+     */
+    protected $output = [];
 
     /**
      * Constructor.
@@ -156,8 +156,8 @@ class Parser
         foreach ($rights as $right) {
             // We'll make sure the right exists inside the definitions
             // array before we try to instantiate it.
-            if (array_key_exists($right, $this->definitions)) {
-                $permissions[] =  new $this->definitions[$right];
+            if (array_key_exists($right, static::$definitions)) {
+                $permissions[] =  new static::$definitions[$right];
             }
         }
 
