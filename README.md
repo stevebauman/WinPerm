@@ -1,4 +1,5 @@
 # WinPerm
+
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/stevebauman/winperm/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/stevebauman/winperm/?branch=master)
 [![Latest Stable Version](https://img.shields.io/packagist/v/stevebauman/winperm.svg?style=flat-square)](https://packagist.org/packages/stevebauman/winperm)
 [![License](https://img.shields.io/packagist/l/stevebauman/winperm.svg?style=flat-square)](https://packagist.org/packages/stevebauman/winperm)
@@ -20,23 +21,23 @@ WinPerm allows you to view the permissions on files and folders on the Windows O
 
 Install WinPerm through composer. Insert this into your `composer.json` dependencies:
 
-    "stevebauman/winperm": "1.0.*"
+    "stevebauman/winperm": "2.0.*"
 
 Then run `composer update`.
 
 ## Usage
 
-Create a new `Stevebauman\WinPerm\Permission` instance, and then set the path by calling `setPath($path)`:
+Create a new `Stevebauman\WinPerm\Scanner` instance, and then set the path by calling `setPath($path)`:
 
 ```php
-$permission = new \Stevebauman\WinPerm\Permission();
+$scanner = new \Stevebauman\WinPerm\Scanner();
 
 try {
     $path = 'C:\\Windows\System32';
     
-    $permission->setPath($path);
+    $scanner->setPath($path);
     
-    $accounts = $permission->check();
+    $accounts = $scanner->check();
     
     foreach ($accounts as $account) {
         // Returns the accounts name, ex: 'BUILTIN\Administrators'
@@ -74,5 +75,7 @@ $command = sprintf('net use %s: %s %s /user:%s /persistent:no', $drive, $path, $
 
 system($command);
 
-$accounts = new Permission('Z:\\HR');
+$scanner = new Scanner('Z:\\HR');
+
+$accounts = $scanner->check();
 ```
