@@ -7,13 +7,6 @@ use Stevebauman\WinPerm\Exceptions\InvalidPathException;
 class Scanner
 {
     /**
-     * The command to use to check for permissions.
-     *
-     * @var string
-     */
-    protected $command = 'icacls';
-
-    /**
      * The path to check.
      *
      * @var string
@@ -57,13 +50,9 @@ class Scanner
      *
      * @return array|bool
      */
-    public function check()
+    public function getAccounts()
     {
-        $command = sprintf('%s "%s"', $this->command, addslashes($this->path));
-
-        exec($command, $output, $return);
-
-        if ($return === 0 && is_array($output)) {
+        if ($output = $this->execute('icacls', $this->path)) {
             // The first element will always include the path, we'll
             // remove it before passing the output to the parser.
             $output[0] = str_replace($this->path, '', $output[0]);
@@ -79,6 +68,37 @@ class Scanner
         }
 
         return false;
+    }
+
+    /**
+     * Returns the current paths unique ID.
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        if ($output = $this->execute('fsutil file queryfileid', $this->path)) {
+                if ((bool) preg_match('/(\d{1}[x].*)/', $output[0], $matches)) {
+                return $matches[0];
+            }
+        }
+    }
+
+    /**
+     * @param string $command
+     * @param string $path
+     *
+     * @return array|null
+     */
+    protected function execute($command, $path)
+    {
+        $command = sprintf('%s "%s"', $command, addslashes($path));
+
+        exec($command, $output, $return);
+
+        if ($return === 0 && is_array($output)) {
+            return $output;
+        }
     }
 
     /**

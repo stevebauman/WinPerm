@@ -9,9 +9,9 @@ class ScannerTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function can_be_constructed_without_path()
     {
-        $permission = new Scanner();
+        $scanner = new Scanner('C:\Windows');
 
-        $this->assertInstanceOf(Scanner::class, $permission);
+        $this->assertInstanceOf(Scanner::class, $scanner);
     }
 
     /** @test */
