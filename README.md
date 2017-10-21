@@ -65,6 +65,8 @@ try {
 To use WinPerm with a network drive, simply mount the drive with a system account before setting your path:
 
 ```php
+use Stevebauman\WinPerm\Scanner;
+
 $path = '\\\\server\\folder';
 
 $user = 'ACME\\administrator';
