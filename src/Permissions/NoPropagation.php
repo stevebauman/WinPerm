@@ -15,7 +15,7 @@ class NoPropagation implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Do Not Propagate Inherit';
     }

@@ -15,7 +15,7 @@ class WriteAttributes implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Write Attributes';
     }

@@ -15,7 +15,7 @@ class ReadControl implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Read Control';
     }

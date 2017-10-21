@@ -15,7 +15,7 @@ class Modify implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Modify Access';
     }

@@ -15,7 +15,7 @@ class InheritOnly implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Inherit Only';
     }

@@ -15,7 +15,7 @@ class ReadAttributes implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Read Attributes';
     }

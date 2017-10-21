@@ -15,7 +15,7 @@ class Read implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Read Only Access';
     }

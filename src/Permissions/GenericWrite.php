@@ -15,7 +15,7 @@ class GenericWrite implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Generic Write';
     }

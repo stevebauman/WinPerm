@@ -5,16 +5,16 @@ namespace Stevebauman\WinPerm\Permissions;
 interface PermissionInterface
 {
     /**
-     * The permission definition string.
+     * The permission definition name.
      *
      * @return string
      */
     public function definition();
 
     /**
-     * Displays the string representation of the permission.
+     * The permissions full name.
      *
      * @return string
      */
-    public function __toString();
+    public function name();
 }

@@ -15,7 +15,7 @@ class DeleteChild implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Delete Child';
     }

@@ -15,7 +15,7 @@ class ReadAndExecute implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Read and Execute Access';
     }

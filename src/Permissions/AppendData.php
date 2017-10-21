@@ -15,7 +15,7 @@ class AppendData implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Append Data / Add Subdirectory';
     }

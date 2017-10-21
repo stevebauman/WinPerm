@@ -15,7 +15,7 @@ class GenericRead implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Generic Read';
     }

@@ -15,7 +15,7 @@ class WriteData implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Write Data / Add File';
     }

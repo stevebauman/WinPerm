@@ -15,7 +15,7 @@ class ObjectInherit implements PermissionInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function name()
     {
         return 'Object Inherit';
     }
