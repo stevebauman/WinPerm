@@ -29,6 +29,8 @@ Then run `composer update`.
 
 Create a new `Stevebauman\WinPerm\Scanner` instance, and then set the path by calling `setPath($path)`:
 
+### Retrieving Accounts
+
 ```php
 $scanner = new \Stevebauman\WinPerm\Scanner();
 
@@ -37,7 +39,7 @@ try {
     
     $scanner->setPath($path);
     
-    $accounts = $scanner->check();
+    $accounts = $scanner->getAccounts();
     
     foreach ($accounts as $account) {
         // Returns the accounts name, ex: 'BUILTIN\Administrators'
@@ -54,6 +56,27 @@ try {
             echo $permission;
         }
     }
+    
+} catch (\Stevebauman\WinPerm\Exceptions\InvalidPathException $e) {
+    // Uh oh, it looks like the path doesn't exist!
+}
+```
+
+### Retrieving ID
+
+Windows utilizes unique identifiers for files and folders that does not change when it is moved or modified.
+
+To retrieve this unique ID, call the `getId()` method:
+
+```php
+$scanner = new \Stevebauman\WinPerm\Scanner();
+
+try {
+    $path = 'C:\\Windows\System32';
+    
+    $scanner->setPath($path);
+    
+    echo $scanner->getId(); // Returns '0x0000000000000000001200000001b1t7'
     
 } catch (\Stevebauman\WinPerm\Exceptions\InvalidPathException $e) {
     // Uh oh, it looks like the path doesn't exist!
@@ -79,5 +102,5 @@ system($command);
 
 $scanner = new Scanner('Z:\\HR');
 
-$accounts = $scanner->check();
+$accounts = $scanner->getAccounts();
 ```
