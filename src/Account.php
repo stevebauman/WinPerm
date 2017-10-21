@@ -62,7 +62,7 @@ class Account implements AccountInterface
     public function getPermissionNames()
     {
         return array_map(function ($permission) {
-            return (string) $permission;
+            return $permission->name();
         }, $this->permissions);
     }
 
