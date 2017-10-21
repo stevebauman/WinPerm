@@ -51,7 +51,9 @@ class Scanner
     }
 
     /**
-     * Executes and processes account permissions for the current path.
+     * Returns an array of accounts with their permissions on the current directory.
+     *
+     * Returns false on failure.
      *
      * @return array|bool
      */
