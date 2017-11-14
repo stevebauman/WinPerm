@@ -92,7 +92,7 @@ class Scanner
      */
     protected function execute($command, $path)
     {
-        $command = sprintf('%s "%s"', $command, addslashes($path));
+        $command = sprintf('%s "%s"', $command, $path);
 
         exec($command, $output, $return);
 
