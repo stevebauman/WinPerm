@@ -77,7 +77,6 @@ try {
     $scanner->setPath($path);
     
     echo $scanner->getId(); // Returns '0x0000000000000000001200000001b1t7'
-    
 } catch (\Stevebauman\WinPerm\Exceptions\InvalidPathException $e) {
     // Uh oh, it looks like the path doesn't exist!
 }
@@ -97,7 +96,7 @@ $password = 'Password1';
 
 $command = sprintf('net use %s: %s %s /user:%s /persistent:no', $drive, $path, $password, $username);
 
-system($command);
+exec($command);
 
 $scanner = new Scanner('Z:\\HR');
 
